@@ -58,7 +58,7 @@ module Koara
         end
         @out << '>'
         if !node.children.nil?
-          block = node.children[0].instance_of?(Paragraph) || node.children[0].instance_of?(BlockElement)
+          block = node.children[0].instance_of?(Koara::Ast::Paragraph) || node.children[0].instance_of?(Koara::Ast::BlockElement)
           if (node.children.length > 1 || !block)
             @out << "\n"
           end
@@ -83,7 +83,7 @@ module Koara
       end
 
       def visit_paragraph(node)
-        if node.nested && node.parent.instance_of?(ListItem) && node.is_single_child
+        if node.nested && node.parent.instance_of?(Koara::Ast::ListItem) && node.is_single_child
           node.children_accept(self)
         else
           @out << indent + '<p>'
@@ -96,7 +96,7 @@ module Koara
       end
 
       def visit_block_element(node)
-        if node.nested && node.parent.instance_of?(ListItem) && node.is_single_child
+        if node.nested && node.parent.instance_of?(Koara::Ast::ListItem) && node.is_single_child
           node.children_accept(self)
         else
           @out << indent

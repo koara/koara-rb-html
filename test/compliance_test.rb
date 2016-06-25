@@ -1,4 +1,5 @@
 # encoding: utf-8
+require 'koara'
 require 'koara/html'
 require 'minitest/autorun'
 require 'pathname'
