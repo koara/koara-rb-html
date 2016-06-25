@@ -1,0 +1,3 @@
+[submodule "testsuite"]
+	path = testsuite
+	url = http://github.com/koara/testsuite
