@@ -2,6 +2,11 @@
 module Koara
   module Html
     class Html5Renderer
+      attr_accessor :partial
+
+      def initialize
+        @partial = true
+      end
 
       def visit_document(node)
         @level = 0
@@ -175,6 +180,15 @@ module Koara
       end
 
       def output
+        if(!partial)
+          wrapper = "<!DOCTYPE html>\n";
+          wrapper << "<html>\n";
+          wrapper << "  <body>\n";
+          wrapper << @out.string.strip.gsub(/^/, "    ") + "\n";
+          wrapper << "  </body>\n";
+          wrapper << "</html>\n";
+          return wrapper;
+        end
         @out.string.strip
       end
 
