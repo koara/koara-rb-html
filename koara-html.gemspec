@@ -2,9 +2,11 @@
 lib = File.expand_path("../lib", __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 
+require 'koara/html'
+
 Gem::Specification.new do |s|
   s.name          = 'koara-html'
-  s.version       = '0.12.0'
+  s.version      = Koara::Html::VERSION
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
 
   s.authors       = ['Andy Van Den Heuvel']
