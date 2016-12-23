@@ -3,21 +3,33 @@ module Koara
   module Html
     class Html5Renderer
       attr_accessor :partial
+      attr_accessor :hard_wrap
+      attr_accessor :heading_ids
 
       def initialize
         @partial = true
+        @hard_wrap = false
+        @heading_ids = false
       end
 
       def visit_document(node)
         @level = 0
         @list_sequence = Array.new
         @out = StringIO.new
-        @hard_wrap = false
         node.children_accept(self)
       end
 
       def visit_heading(node)
-        @out << indent + '<h' + node.value.to_s + '>'
+        @out << indent + '<h' + node.value.to_s
+        if @heading_ids
+          id = ''
+          node.children.each do |n|
+            id << n.value.to_s
+          end
+
+          @out << " id=\"" + id.downcase.gsub(/ /, '_') + "\""
+        end
+        @out << '>'
         node.children_accept(self)
         @out << '</h' + node.value.to_s + ">\n"
         unless node.nested

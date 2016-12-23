@@ -8,7 +8,7 @@ require 'rake/testtask'
 Rake::TestTask.new('test:unit') do |t|
   t.libs << 'lib'
   t.libs << 'test'
-  t.pattern = 'test/*.rb'
+  t.pattern = 'test/html*.rb'
   t.verbose = true
   t.warning = false
 end
