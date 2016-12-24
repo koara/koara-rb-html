@@ -33,7 +33,6 @@ DEPENDENCIES
   coveralls (= 0.8.17)
   koara (~> 0.13.0)
   koara-html!
-  rake (~> 10.4, >= 10.4.2)
 
 BUNDLED WITH
    1.11.2
