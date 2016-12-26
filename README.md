@@ -10,11 +10,10 @@
 The AST is created by the [core koara parser](https://github.com/koara/koara-rb).
 
 ## Getting started
-- Gem
 
-  ```bash
-  gem install koara-html
-  ```
+```bash
+gem install koara-html
+```
 
 ## Usage
 
