@@ -3,6 +3,6 @@ require 'koara/html/html5renderer'
 
 module Koara
   module Html
-    VERSION = '0.14.0'
+    VERSION = '0.15.0'
   end
 end
